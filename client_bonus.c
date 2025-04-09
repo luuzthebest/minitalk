@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hounajar <hounajar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 16:25:38 by lvvz              #+#    #+#             */
-/*   Updated: 2025/04/09 12:37:44 by hounajar         ###   ########.fr       */
+/*   Updated: 2025/04/09 14:51:59 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	sender(unsigned char c, int pid)
 		else
 			sign_it(pid, SIGUSR2);
 		c >>= 1;
-		usleep(100);
+		usleep(400);
 		bit++;
 	}
 }
