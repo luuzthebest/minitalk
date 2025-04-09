@@ -4,6 +4,9 @@ RM = rm -rf
 
 H_FILE = minitalk.h
 
+UTILS = utils.c
+UTILS_OBJ = utils.o
+
 SERVER_SRC = server.c
 CLIENT_SRC = client.c
 
@@ -23,9 +26,9 @@ B_SERVER = bonus_server
 B_CLIENT = bonus_client
 all: $(SERVER) $(CLIENT)
 
-$(SERVER): $(SERVER_OBJ) $(H_FILE)
+$(SERVER): $(SERVER_OBJ) $(UTILS_OBJ) $(H_FILE)
 	$(CC) $< -o $@
-$(CLIENT): $(CLIENT_OBJ) $(H_FILE)
+$(CLIENT): $(CLIENT_OBJ) $(UTILS_OBJ) $(H_FILE)
 	$(CC) $< -o $@
 
 $(B_SERVER): $(B_SERVER_OBJ) $(H_FILE)
@@ -39,7 +42,7 @@ $(B_CLIENT): $(B_CLIENT_OBJ) $(H_FILE)
 bonus: $(B_CLIENT) $(B_SERVER)
 
 clean:
-	rm -f $(CLIENT_OBJ) $(SERVER_OBJ) $(B_CLIENT_OBJ) $(B_SERVER_OBJ)
+	rm -f $(CLIENT_OBJ) $(SERVER_OBJ) $(B_CLIENT_OBJ) $(B_SERVER_OBJ) $(UTILS_OBJ)
 
 fclean: clean
 	rm -f $(CLIENT) $(SERVER) $(B_CLIENT) $(B_SERVER)

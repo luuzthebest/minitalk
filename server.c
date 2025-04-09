@@ -3,33 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hounajar <hounajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 16:22:58 by lvvz              #+#    #+#             */
-/*   Updated: 2025/04/09 12:13:59 by lvvz             ###   ########.fr       */
+/*   Updated: 2025/04/09 12:38:22 by hounajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void	ft_putnbr(int n)
-{
-	long int	nb;
-
-	nb = n;
-	if (nb < 10)
-		ft_putchar(nb + '0');
-	else
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
-}
 
 void	handler(int sig, siginfo_t *info, void *ucontext)
 {
