@@ -3,14 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hounajar <hounajar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 12:36:13 by hounajar          #+#    #+#             */
-/*   Updated: 2025/04/09 12:41:13 by hounajar         ###   ########.fr       */
+/*   Updated: 2025/04/09 15:20:32 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+int	ss(const char *str)
+{
+	if (*str == '\0')
+		return (0);
+	while (*str)
+	{
+		if (*str != ' ' && *str != '\t')
+			return (1);
+		str++;
+	}
+	return (0);
+}
 
 long int	ft_atoi(const char *nptr)
 {
@@ -35,7 +48,7 @@ long int	ft_atoi(const char *nptr)
 		result = result * 10 + (*nptr - '0');
 		nptr++;
 	}
-	if (*nptr != '\0')
+	if (ss(nptr))
 		return (-1);
 	return (result * sign);
 }
