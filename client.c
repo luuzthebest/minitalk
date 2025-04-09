@@ -6,7 +6,7 @@
 /*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 16:25:38 by lvvz              #+#    #+#             */
-/*   Updated: 2025/04/08 22:02:18 by lvvz             ###   ########.fr       */
+/*   Updated: 2025/04/09 12:25:32 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ long int	ft_atoi(const char *nptr)
 	}
 	else if (*nptr == '+')
 		nptr++;
-	if (*nptr < '0' || *nptr > '9') 
+	if (*nptr < '0' || *nptr > '9')
 		return (-1);
 	while (*nptr && *nptr >= '0' && *nptr <= '9')
 	{
@@ -36,9 +36,10 @@ long int	ft_atoi(const char *nptr)
 		nptr++;
 	}
 	if (*nptr != '\0')
-		return (-1); 
+		return (-1);
 	return (result * sign);
 }
+
 void	sign_it(int pid, int s)
 {
 	if (kill(pid, s) == -1)
@@ -47,7 +48,8 @@ void	sign_it(int pid, int s)
 		exit(1);
 	}
 }
-void sender(unsigned char c , int pid)
+
+void	sender(unsigned char c, int pid)
 {
 	int	bit;
 
@@ -55,7 +57,7 @@ void sender(unsigned char c , int pid)
 	while (bit < 8)
 	{
 		if (c & 1)
-			sign_it(pid, SIGUSR1);		
+			sign_it(pid, SIGUSR1);
 		else
 			sign_it(pid, SIGUSR2);
 		c >>= 1;
@@ -64,17 +66,22 @@ void sender(unsigned char c , int pid)
 	}
 }
 
-int main(int ac, char *av[])
+void	arg_check(int ac)
 {
-	int		pid;
-	int 	i;
-
-	i = 0;
 	if (ac != 3)
 	{
 		write(1, "Invalid ARGS\n", 13);
 		exit(1);
 	}
+}
+
+int	main(int ac, char *av[])
+{
+	int	pid;
+	int	i;
+
+	i = 0;
+	arg_check(ac);
 	pid = ft_atoi(av[1]);
 	if (pid > 0)
 	{
@@ -91,7 +98,5 @@ int main(int ac, char *av[])
 		write(1, "Invalid PID\n", 12);
 		exit(1);
 	}
-	return 0;
-	
-	
+	return (0);
 }
