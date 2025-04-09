@@ -6,7 +6,7 @@
 /*   By: lvvz <lvvz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 12:36:13 by hounajar          #+#    #+#             */
-/*   Updated: 2025/04/09 15:20:32 by lvvz             ###   ########.fr       */
+/*   Updated: 2025/04/09 18:59:08 by lvvz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,7 @@ long int	ft_atoi(const char *nptr)
 	while ((*nptr >= 9 && *nptr <= 13) || *nptr == 32)
 		nptr++;
 	if (*nptr == '-')
-	{
-		sign *= -1;
-		nptr++;
-	}
+		return (-1);
 	else if (*nptr == '+')
 		nptr++;
 	if (*nptr < '0' || *nptr > '9')
