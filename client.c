@@ -6,7 +6,7 @@
 /*   By: hounajar <hounajar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 16:25:38 by lvvz              #+#    #+#             */
-/*   Updated: 2025/04/09 12:40:53 by hounajar         ###   ########.fr       */
+/*   Updated: 2025/04/09 14:03:26 by hounajar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	sender(unsigned char c, int pid)
 		else
 			sign_it(pid, SIGUSR2);
 		c >>= 1;
-		usleep(100);
+		usleep(400);
 		bit++;
 	}
 }
